@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>show-library</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let b of books">
+      <ion-label>
+        <p>{{b.title}}</p>
+        <p>{{b.author}}</p>
+        <p>{{b.isbn}}</p>
+        <p>{{b.genre}}</p>
+        <p>{{b.publicationYear}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
