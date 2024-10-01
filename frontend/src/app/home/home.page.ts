@@ -20,4 +20,8 @@ export class HomePage {
     this.router.navigateByUrl("/show-library");
   }
 
+  goToCreateBook() {
+    this.router.navigateByUrl("/create-book");
+  }
+
 }

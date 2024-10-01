@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>create-book</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">creation-shop</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="libraryForm" (ngSubmit)="createBook()">
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('title')?.hasError('required')
+    && getFormControl('title')?.touched">
+      The titled is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Author</ion-label>
+      <ion-input formControlName="author" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('author')?.hasError('required')
+    && getFormControl('author')?.touched">
+      The author is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">ISBN</ion-label>
+      <ion-input formControlName="isbn" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('isbn')?.hasError('required')
+    && getFormControl('isbn')?.touched">
+      The ISBN is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Genre</ion-label>
+      <ion-input formControlName="genre" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('genre')?.hasError('required')
+    && getFormControl('genre')?.touched">
+      The genre is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Publication Year</ion-label>
+      <ion-input formControlName="publicationYear" type="number"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="getFormControl('publicationYear')?.hasError('required')
+    && getFormControl('publicationYear')?.touched">
+      The publication year is required.
+    </ion-note>
+
+    <ion-button type="Submit" [disabled]="!libraryForm.valid">Create</ion-button>
+  </form>
+</ion-content>

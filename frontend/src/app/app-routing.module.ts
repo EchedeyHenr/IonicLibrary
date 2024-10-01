@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'show-library',
     loadChildren: () => import('./show-library/show-library.module').then( m => m.ShowLibraryPageModule)
   },
+  {
+    path: 'create-book',
+    loadChildren: () => import('./create-book/create-book.module').then( m => m.CreateBookPageModule)
+  },
 ];
 
 @NgModule({

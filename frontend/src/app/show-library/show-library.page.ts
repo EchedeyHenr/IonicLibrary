@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LibraryService } from '../services/library.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-library',
@@ -27,7 +28,9 @@ export class ShowLibraryPage implements OnInit {
     } */
   ];
 
-  constructor(private libraryService: LibraryService) { }
+  constructor(private libraryService: LibraryService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.getAllBooks();
@@ -37,5 +40,9 @@ export class ShowLibraryPage implements OnInit {
     this.libraryService.getAll().subscribe(response => {
       this.books = response;
     });
+  }
+
+  goHomeButton(){
+    this.router.navigateByUrl("/");
   }
 }
