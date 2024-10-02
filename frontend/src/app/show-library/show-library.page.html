@@ -13,6 +13,7 @@
       <ion-label>Genre: {{b.genre}}</ion-label>
       <ion-label>Publication year: {{b.publicationYear}}</ion-label>
       <ion-button (click)="deleteBook(b.id)">Delete</ion-button>
+      <ion-button (click)="updatedBook(b.id)">Update</ion-button>
     </ion-item>
   </ion-list>
   <ion-button (click)="goHomeButton()">Home</ion-button>

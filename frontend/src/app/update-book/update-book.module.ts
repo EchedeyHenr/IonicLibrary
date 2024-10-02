@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ShowLibraryPageRoutingModule } from './show-library-routing.module';
+import { UpdateBookPageRoutingModule } from './update-book-routing.module';
 
-import { ShowLibraryPage } from './show-library.page';
+import { UpdateBookPage } from './update-book.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ShowLibraryPageRoutingModule,
+    UpdateBookPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ShowLibraryPage]
+  declarations: [UpdateBookPage]
 })
-export class ShowLibraryPageModule {}
+export class UpdateBookPageModule {}

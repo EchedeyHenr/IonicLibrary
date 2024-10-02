@@ -53,5 +53,9 @@ export class ShowLibraryPage implements OnInit {
     this.router.navigateByUrl("/");
   }
 
+  updatedBook(id: any){
+    this.router.navigate(['/update-book', id]);
+  }
+
   
 }

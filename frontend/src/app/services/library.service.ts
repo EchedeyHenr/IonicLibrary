@@ -32,4 +32,12 @@ export class LibraryService {
   delete(id: any){
     return this.httpClient.delete(`${this.endpoint}/${id}`);
   }
+
+  update(id: any, dataBook: any){
+    return this.httpClient.put(`${this.endpoint}/${id}`, dataBook);
+  }
+
+  findById(id: any){
+    return this.httpClient.get(`${this.endpoint}/${id}`);
+  }
 }
