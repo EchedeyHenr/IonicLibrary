@@ -43,4 +43,8 @@ export class CreateBookPage implements OnInit {
     return this.libraryForm.get(field);
   }
 
+  goHome(){
+    this.router.navigateByUrl("/");
+  }
+
 }

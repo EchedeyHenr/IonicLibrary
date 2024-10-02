@@ -13,7 +13,7 @@ import { ShowLibraryPage } from './show-library.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ShowLibraryPageRoutingModule
+    ShowLibraryPageRoutingModule,
   ],
   declarations: [ShowLibraryPage]
 })

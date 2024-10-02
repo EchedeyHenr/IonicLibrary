@@ -22,7 +22,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-
+    
 };
 
 exports.update = (req, res) => {
@@ -30,5 +30,10 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
+    const id = req.params.id;
 
+    Library.destroy({where: {id: id}}).then(() => {
+        console.log("Se ha borrado");
+        res.send({ message: "Deleted" });
+    })
 };

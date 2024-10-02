@@ -28,4 +28,8 @@ export class LibraryService {
 
     return this.httpClient.post(this.endpoint, body.toString(), { headers });
   }
+
+  delete(id: any){
+    return this.httpClient.delete(`${this.endpoint}/${id}`);
+  }
 }

@@ -42,7 +42,16 @@ export class ShowLibraryPage implements OnInit {
     });
   }
 
+  deleteBook(id: any){
+    this.libraryService.delete(id).subscribe(response => {
+      this.getAllBooks();
+      console.log("Borrado.");
+    });
+  }
+
   goHomeButton(){
     this.router.navigateByUrl("/");
   }
+
+  
 }
