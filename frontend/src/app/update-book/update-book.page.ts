@@ -48,4 +48,8 @@ export class UpdateBookPage implements OnInit {
     );
   }
 
+  goHomeButton(){
+    this.router.navigateByUrl("/");
+  }
+
 }

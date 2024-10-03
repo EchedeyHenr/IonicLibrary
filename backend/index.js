@@ -16,16 +16,15 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./models");
 
 // No borramos la base de datos, la sincronizamos.
-db.sequelize.sync();
+//db.sequelize.sync();
 
 /* Es posible que necesitemos borrar la base de datos y no sincronizarla.
-Para ello descomentar lineas 17, 18 y 19, y comentar la linea 12.*/
+Para ello descomentar lineas 24, 25 y 26, y comentar la linea 19.*/
 
-/* db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     console.log("Drop an re-sync db.");
-}); */
+});
 
-// Ruta simple - End-point que escucha en localhost:8080/ y devuelve un mensaje en formato JSON
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to Library Application"});
 });

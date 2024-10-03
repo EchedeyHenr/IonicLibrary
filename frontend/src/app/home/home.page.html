@@ -1,23 +1,52 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar color="dark">
+    <ion-title class="title-text">
       Librería Osmosis
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+    <ion-toolbar color="dark">
+      <ion-title size="large" class="title-text">Librería Osmosis</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <h1>Librería Osmosis</h1>
+    <h1>Sean Bienvenidos a la Librería Osmosis</h1>
+    <p>Sumérgete en el conocimiento y la magia de los libros.</p>
     
-    <ion-button (click)="showLibrary()">Show Library</ion-button>
-    <ion-button (click)="goToCreateBook()">Go to create a book</ion-button>
+    <img src="assets/images/books/library.jpg" alt="library" class="book-cover" />
+
+    <ion-button color="tertiary" (click)="showLibrary()">
+      Ver Colección de Libros
+    </ion-button>
+
+    <ion-button color="medium" (click)="goToCreateBook()">
+      Añadir un Nuevo Libro
+    </ion-button>
+
+    <div id="inspirational-quotes">
+        <h2>Citas Inspiradoras</h2>
+        <blockquote>
+          <p>{{ currentQuote }}</p>
+        </blockquote>
+    </div>
+
+    <div id="events">
+        <h2>Eventos de Lectura</h2>
+        <ion-list>
+            <ion-item>
+                <ion-label class="events">
+                    <h2 class="custom-h2">Club de Lectura</h2>
+                    <p>Fecha: 15 de octubre, 5:00 PM</p>
+                    <p>Descripción: Únete a nosotros para discutir "El Alquimista".</p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
   </div>
-  
+
 </ion-content>
+

@@ -1,11 +1,7 @@
 #container {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 20px;
+  padding: 0 20px;
 }
 
 #container strong {
@@ -16,12 +12,65 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+.events {
+  background-color: #4f4f4f;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.events h2.custom-h2 {
+  color: #e0e0e0;
+}
+
+#events .events p {
+  color: #e0e0e0;
+}
+
+h1 {
+  font-size: 28px;
+  color: #5c4033;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #5c4033;
+  margin-bottom: 10px;
+}
+
+.custom-h2 {
+  color: #dbcec7;
+}
+
+p {
+  font-size: 18px;
+  color: #7f7f7f;
+  margin-bottom: 32px;
+}
+
+ion-button {
+  margin: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+.book-cover {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.title-text {
+  color: #f5f5f5; 
 }

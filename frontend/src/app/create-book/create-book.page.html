@@ -1,63 +1,95 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>create-book</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title class="title-text">Crear Libro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
 
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">creation-shop</ion-title>
+    <ion-toolbar color="dark">
+      <ion-title size="large" class="title-text">Añadir Libro</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <form [formGroup]="libraryForm" (ngSubmit)="createBook()">
-    <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-input formControlName="title" type="text"></ion-input>
-    </ion-item>
-    <ion-note color="danger" *ngIf="getFormControl('title')?.hasError('required')
+  <div id="container">
+    <h1>Formulario de Creación de Libros</h1>
+    <div id="inspirational-quotes">
+      <h2>Citas Inspiradoras</h2>
+      <blockquote>
+        <p>{{ currentQuote }}</p>
+      </blockquote>
+    </div>
+
+    <div class="image-container">
+      <img src="assets/images/books/row-books.png" alt="Libro" class="book-image" />
+    </div>
+
+    <form [formGroup]="libraryForm" (ngSubmit)="createBook()" class="book-form">
+      <ion-item>
+        <ion-label position="floating">Título:</ion-label>
+        <ion-input formControlName="title" type="text"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ion-note color="danger" *ngIf="getFormControl('title')?.hasError('required')
     && getFormControl('title')?.touched">
-      The titled is required.
-    </ion-note>
+          The titled is required.
+        </ion-note>
+      </div>
 
-    <ion-item>
-      <ion-label position="floating">Author</ion-label>
-      <ion-input formControlName="author" type="text"></ion-input>
-    </ion-item>
-    <ion-note color="danger" *ngIf="getFormControl('author')?.hasError('required')
+      <ion-item>
+        <ion-label position="floating">Autor:</ion-label>
+        <ion-input formControlName="author" type="text"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ion-note color="danger" *ngIf="getFormControl('author')?.hasError('required')
     && getFormControl('author')?.touched">
-      The author is required.
-    </ion-note>
+          The author is required.
+        </ion-note>
+      </div>
 
-    <ion-item>
-      <ion-label position="floating">ISBN</ion-label>
-      <ion-input formControlName="isbn" type="text"></ion-input>
-    </ion-item>
-    <ion-note color="danger" *ngIf="getFormControl('isbn')?.hasError('required')
+      <ion-item>
+        <ion-label position="floating">ISBN:</ion-label>
+        <ion-input formControlName="isbn" type="text"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ion-note color="danger" *ngIf="getFormControl('isbn')?.hasError('required')
     && getFormControl('isbn')?.touched">
-      The ISBN is required.
-    </ion-note>
-
-    <ion-item>
-      <ion-label position="floating">Genre</ion-label>
-      <ion-input formControlName="genre" type="text"></ion-input>
-    </ion-item>
-    <ion-note color="danger" *ngIf="getFormControl('genre')?.hasError('required')
+          The ISBN is required.
+        </ion-note>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Género:</ion-label>
+        <ion-input formControlName="genre" type="text"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ion-note color="danger" *ngIf="getFormControl('genre')?.hasError('required')
     && getFormControl('genre')?.touched">
-      The genre is required.
-    </ion-note>
+          The genre is required.
+        </ion-note>
+      </div>
 
-    <ion-item>
-      <ion-label position="floating">Publication Year</ion-label>
-      <ion-input formControlName="publicationYear" type="number"></ion-input>
-    </ion-item>
-    <ion-note color="danger" *ngIf="getFormControl('publicationYear')?.hasError('required')
+      <ion-item>
+        <ion-label position="floating">Año de publicación:</ion-label>
+        <ion-input formControlName="publicationYear" type="number"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ion-note color="danger" *ngIf="getFormControl('publicationYear')?.hasError('required')
     && getFormControl('publicationYear')?.touched">
-      The publication year is required.
-    </ion-note>
+          The publication year is required.
+        </ion-note>
+      </div>
 
-    <ion-button type="Submit" [disabled]="!libraryForm.valid">Create</ion-button>
-  </form>
+      <ion-button type="Submit" [disabled]="!libraryForm.valid">Añadir</ion-button>
+    </form>
+    <div class="button-container">
+      <ion-button color="medium" (click)="goHomeButton()">
+        Volver a Inicio
+      </ion-button>
+
+      <ion-button color="tertiary" (click)="showLibrary()">
+        Ver Colección de Libros
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

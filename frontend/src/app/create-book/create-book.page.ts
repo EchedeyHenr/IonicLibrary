@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LibraryService } from '../services/library.service';
 import { Router } from '@angular/router';
+import { QuotesService } from '../services/quotes.service';
 
 @Component({
   selector: 'app-create-book',
@@ -11,10 +12,12 @@ import { Router } from '@angular/router';
 export class CreateBookPage implements OnInit {
 
   libraryForm: FormGroup;
+  currentQuote: string = '';
 
   constructor(public formBuilder: FormBuilder,
     private libraryService: LibraryService,
-    private router: Router
+    private router: Router,
+    private quoteService: QuotesService
   ) { 
     this.libraryForm = this.formBuilder.group({
       title: ['', Validators.compose([Validators.required])],
@@ -26,6 +29,10 @@ export class CreateBookPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.currentQuote = this.quoteService.getRandomQuote();
   }
 
   createBook() {
@@ -43,8 +50,12 @@ export class CreateBookPage implements OnInit {
     return this.libraryForm.get(field);
   }
 
-  goHome(){
+  goHomeButton(){
     this.router.navigateByUrl("/");
+  }
+
+  showLibrary() {
+    this.router.navigateByUrl("/show-library");
   }
 
 }

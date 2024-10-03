@@ -1,20 +1,65 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>show-library</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title class="title-text">Muestrario de Libros</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let b of books">
-      <ion-label>Title: {{b.title}}</ion-label>
-      <ion-label>Author: {{b.author}}</ion-label>
-      <ion-label>ISBN: {{b.isbn}}</ion-label>
-      <ion-label>Genre: {{b.genre}}</ion-label>
-      <ion-label>Publication year: {{b.publicationYear}}</ion-label>
-      <ion-button (click)="deleteBook(b.id)">Delete</ion-button>
-      <ion-button (click)="updatedBook(b.id)">Update</ion-button>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="goHomeButton()">Home</ion-button>
+<ion-content [fullscreen]="true" class="ion-padding" >
+
+  <ion-header collapse="condense">
+    <ion-toolbar color="dark">
+      <ion-title size="large" class="title-text">Libros Disponibles</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h1>Listado de Libros</h1>
+
+    <ion-list>
+      <ion-item *ngFor="let b of books" class="book-item">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <h2>{{ b.title }}</h2>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <p><strong>Autor:</strong> {{ b.author }}</p>
+            </ion-col>
+            <ion-col size="6">
+              <p><strong>ISBN:</strong> {{ b.isbn }}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="6">
+              <p><strong>Género:</strong> {{ b.genre }}</p>
+            </ion-col>
+            <ion-col size="6">
+              <p><strong>Año de Publicación:</strong> {{ b.publicationYear }}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="button-row">
+            <ion-col size="auto">
+              <ion-button class="delete-button" (click)="deleteBook(b.id)">Eliminar</ion-button>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-button class="update-button" (click)="updatedBook(b.id)">Actualizar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+    <ion-button color="medium" (click)="goHomeButton()" class="go-home-button">
+      Volver a Inicio
+    </ion-button>
+    <ion-button color="tertiary" (click)="goToCreateBook()" class="go-home-button">
+      Añadir un Nuevo Libro
+    </ion-button>
+  </div>
+
 </ion-content>
