@@ -24,16 +24,13 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Library.findById(id).then(data => {
-        if (!data) {
-            res.status(404).send({
-                message: 'Cannot find Book with id=${id}.'
-            });
-        }
-        res.send(data);
-    }).catch(err => {
+    Library.findByPk(id)
+        .then(data => {
+            res.send(data);
+    })
+    .catch(err => {
         res.status(500).send({
-            message: "Error retrieving book with id = " +id
+            message: "Error retrieving book with id= " + id
         });
     });
 };
@@ -41,24 +38,23 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Library.update({
-        title: res.body.title,
-        author: res.body.author,
-        isbn: res.body.isbn,
-        genre: res.body.genre,
-        publicationYear: res.body.publicationYear}, { where: { id: id} }).then((num) => {
+    Library.update(req.body, { 
+        where: { id: id} 
+    })
+        .then(num => {
         if (num == 1) {
             res.send({
                 message: "Book was updated successfully."
             });
         } else {
             res.send({
-                message: 'Cannot update book with id=${id}.'
+                message: `Cannot update book with id=${id}.`
             });
         }
-    }).catch(err => {
+    })
+    .catch(err => {
         res.status(500).send({
-            message: "Error updating book with id = " +id
+            message: "Error updating book with id= " + id
         });
     });
 };
@@ -66,8 +62,11 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Library.destroy({where: {id: id}}).then(() => {
-        console.log("Se ha borrado");
-        res.send({ message: "Deleted" });
+    Library.destroy({
+        where: {id: id}
     })
-};
+        .then(() => {
+            console.log("Se ha borrado");
+            res.send({ message: "Deleted" });
+        })
+    };

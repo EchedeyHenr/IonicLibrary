@@ -8,12 +8,6 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  title: string = "PruebaTitle";
-  author: string = "PruebaAuthor";
-  isbn: string = "PruebaIsbn";
-  genre: string = "PruebaGenre";
-  publicationYear: number = 1999;
-
   constructor(private router: Router) {}
 
   showLibrary() {

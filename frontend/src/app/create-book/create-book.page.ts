@@ -32,7 +32,7 @@ export class CreateBookPage implements OnInit {
     if(this.libraryForm.valid) {
       console.log('Valid form: ', this.libraryForm.value);
       this.libraryService.create(this.libraryForm.value).subscribe(res => {
-        this.router.navigateByUrl("/");
+        this.router.navigateByUrl("/show-library");
       })
     } else {
       console.log('Invalid form.');
